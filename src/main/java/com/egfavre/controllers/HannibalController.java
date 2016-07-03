@@ -45,10 +45,9 @@ public class HannibalController {
         lecturers.save(lecturer);
     }
 
-    @RequestMapping (path = "/reviews?lecturerId=id", method = RequestMethod.GET)
-    public Iterable<Review> reviews (HttpSession session, HttpServletRequest request){
-        int id = Integer.valueOf(request.getParameter("id"));
-        return reviews.findByLecturer(lecturers.findOne(id));
+    @RequestMapping (path = "/reviews", method = RequestMethod.GET)
+    public Iterable<Review> reviews (HttpServletRequest request){
+        return reviews.findAll();
     }
 
     @RequestMapping(path = "/reviews", method = RequestMethod.POST)
